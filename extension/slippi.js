@@ -304,15 +304,18 @@ function runConnection() {
 	}));
 }
 
-async function connectToSlippi(type = "dolphin", address = "0.0.0.0", slpPort = 1667) {
+async function connectToSlippi(type = "dolphin", address = "192.168.1.104", slpPort = 1667) {
 
 	slippi.value.connection.type = type;
-	slippi.value.connection.address = address;
+	//HARD CODE SLIPPI ADDR HERE
+	slippi.value.connection.address = "192.168.1.104";
+	address = "192.168.1.104"
 	slippi.value.connection.port = slpPort;
 	slippi.value.connection.connected = false;
 
 	//type: "dolphin" or "console"
 	console.log(`Attempt to connect to slippi on port: ${slpPort}`);
+	console.log(address)
 
 	let fileOptions = {
 		outputFiles: true,
@@ -459,7 +462,7 @@ async function test() {
 	else { //console
 		try {
 			console.log(`Connecting on port: ${consolePort}`);
-			await connectToSlippi("relay", "0.0.0.0", consolePort);
+			await connectToSlippi("relay", "192.168.1.104", consolePort);
 		} catch (err) {
 			console.error(`Failed to connect to port ${consolePort}! Is the relay running?`, err);
 		}

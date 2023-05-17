@@ -17,4 +17,5 @@ module.exports = function(nodecg) {
 	require('./obs');
 	require('./stats');
 	require('./api-startgg');
+	require('./slippi-hud-ws');
 };
